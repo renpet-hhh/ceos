@@ -37,9 +37,38 @@ const transformCPF = text => {
     return result;
 }
 
+const transformCEP = text => {
+    // Bem parecido com transformCPF, veja os comentários dessa função
+    // Poderia até generalizar pra formatos arbitrários, mas não vale a pena pra esse site
+    let digits = ''
+    for (const c of text) {
+        if (c >= '0' && c <= '9') {
+            digits += c
+        }
+    }
+    const groups = [digits.substr(0, 5), digits.substr(5, 3)];
+    let result = '';
+    if (groups[0]) {
+        result += groups[0];
+        if (groups[1]) {
+            result += '-' + groups[1];
+        }
+    }
+    return result;
+}
+
+const getFormData = () => {
+    const form = document.getElementById('id-formContainer');
+    const inputs = form.getElementsByTagName('input');
+    const data = {};
+    for (const input of inputs) {
+        data[input.name] = input.value;
+    }
+    return data;
+}
 /** Algumas funções dependem do DOM, então precisamos esperar ele carregar primeiro */
 const runAfterLoad = () => {
-    const cpfInput = document.getElementById('cpf');
+    const cpfInput = document.getElementById('id-cpf');
     cpfInput.addEventListener('input', ev => {
         /** Vamos transformar o valor digitado no input em uma string no formato CPF
          * É BEM importante que transformCPF não adicione pontuação caso o próximo "grupo" de dígitos
@@ -49,9 +78,13 @@ const runAfterLoad = () => {
          */
         cpfInput.value = transformCPF(ev.target.value);
     });
+    const cepInput = document.getElementById('id-cep');
+    cepInput.addEventListener('input', ev => {
+        cepInput.value = transformCEP(ev.target.value);
+    });
 
-    const sendPhotoButton = document.getElementById('sendPhoto');
-    const previewPhoto = document.getElementById('previewPhoto');
+    const sendPhotoButton = document.getElementById('id-sendPhoto');
+    const previewPhoto = document.getElementById('id-previewPhoto');
     sendPhotoButton.addEventListener('change', ev => {
         const file = ev.target.files[0];
         const reader = new FileReader();
@@ -60,5 +93,9 @@ const runAfterLoad = () => {
         }
         reader.readAsDataURL(file);
     });
+    const button = document.getElementById('id-submitButton');
+    button.addEventListener('click', ev => {
+        console.log(getFormData());
+    });
 }
-window.onload = runAfterLoad;
+document.addEventListener('DOMContentLoaded', runAfterLoad);

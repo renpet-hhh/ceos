@@ -6,50 +6,55 @@
 </head>
 
 <body>
-    <div id="root">
-        <div id="formContainer">
-            <div id="gridContainer">
-                <div id="nameInputDiv" class="inputContainer">
+    <div id="id-root">
+        <form id="id-formContainer">
+            <div id="id-gridContainer">
+                <div id="id-nameInputDiv" class="inputContainer">
                     <label class="inputLabel">Nome</label>
-                    <input id="name" type="text" placeholder="Digite seu nome" />
+                    <input name="nome" required id="id-name" type="text" placeholder="Digite seu nome" />
                 </div>
-                <div id="emailInputDiv" class="inputContainer">
+                <div id="id-emailInputDiv" class="inputContainer">
                     <label class="inputLabel">Email</label>
-                    <input id="email" type="email" placeholder="Digite seu email" />
+                    <input name="email" required id="id-email" type="email" placeholder="Digite seu email" />
                 </div>
-                <div id="ageInputDiv" class="inputContainer">
+                <div id="id-ageInputDiv" class="inputContainer">
                     <label class="inputLabel">Idade</label>
-                    <input id="age" type="number" placeholder="Digite sua idade" />
+                    <input name="idade" min="0" max="200" required id="id-age" type="number" placeholder="Digite sua idade" />
                 </div>
-                <div id="cpfInputDiv" class="inputContainer">
+                <div id="id-cpfInputDiv" class="inputContainer">
                     <label class="inputLabel">CPF</label>
-                    <input id="cpf" type="text" placeholder="000.000.000-00" />
+                    <!-- minlength não checa mudanças feitas por script, que é o nosso caso -->
+                    <input name="cpf" pattern=".{14,}" required id="id-cpf" type="text" placeholder="000.000.000-00" />
                 </div>
-                <div id="cepInputDiv" class="inputContainer">
+                <div id="id-cepInputDiv" class="inputContainer">
                     <label class="inputLabel">CEP</label>
-                    <input id="cep" type="text" placeholder="Digite seu CEP" />
+                    <input name="cep" pattern=".{9,}" required id="id-cep" type="text" placeholder="Digite seu CEP" />
                 </div>
-                <div id="objectivesInputDiv" class="inputContainer">
-                    <label class="inputLabel">Quais são seus objetivos na empresa?</label>
-                    <textarea id="objectives"></textarea>
-                </div>
-                <div id="occupationInputDiv" class="inputContainer">
+                <div id="id-occupationInputDiv" class="inputContainer">
                     <label class="inputLabel">Selecione a vaga para a qual você deseja concorrer</label>
-                    <select id="occupation">
-                        <option>Caixa</option>
-                        <option>Segurança</option>
-                        <option>Gerente</option>
-                        <option>Zelador</option>
+                    <select name="cargo" required id="id-occupation">
+                        <option value="caixa">Caixa</option>
+                        <option value="seguranca">Segurança</option>
+                        <option value="gerente">Gerente</option>
+                        <option value="zelador">Zelador</option>
                     </select>
                 </div>
-                <div id="photoInputDiv" class="inputContainer">
+                <div id="id-objectivesInputDiv" class="inputContainer">
+                    <label class="inputLabel">Quais são seus objetivos na empresa?</label>
+                    <textarea name="objetivos" required id="id-objectives"></textarea>
+                </div>
+                <div id="id-photoInputDiv" class="inputContainer">
                     <label class="inputLabel">Sua foto</label>
                     <!-- Transparent 1px image as default -->
                     <!-- https://css-tricks.com/snippets/html/base64-encode-of-1x1px-transparent-gif/ -->
-                    <img id="previewPhoto" alt="Foto enviada pelo usuário" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="200" height="200" />
-                    <input id="sendPhoto" type='file' accept="image/*" />
+                    <img id="id-previewPhoto" alt="Foto enviada pelo usuário" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="200" height="200" />
+                    <div>
+                        <button id="id-ENVIARFOTO">ENVIAR FOTO</button>
+                        <input name="foto" required id="id-sendPhoto" type='file' accept="image/*"/>
+                    </div>
                 </div>
+                <button id="id-submitButton" type="submit">Enviar</button>
             </div>
-        </div>
+        </form>
     </div>
 </body>

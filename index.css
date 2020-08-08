@@ -4,11 +4,11 @@
     color: #202020;
 }
 
-#root {
+#id-root {
     display: flex;
     flex-direction: column;
 }
-#formContainer {
+#id-formContainer {
     width: 90%;
     max-width: 800px;
     align-self: center;
@@ -18,7 +18,7 @@
     padding: 20px;
 }
 
-#gridContainer {
+#id-gridContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr auto auto;
@@ -30,41 +30,54 @@
                             "photo photo";
 }
 
-#nameInputDiv {
+#id-nameInputDiv {
     grid-area: name;
 }
-#emailInputDiv {
+#id-emailInputDiv {
     grid-area: email;
 }
-#ageInputDiv {
+#id-ageInputDiv {
     grid-area: age;
 }
-#cpfInputDiv {
+#id-cpfInputDiv {
     grid-area: cpf;
 }
-#cepInputDiv {
+#id-cepInputDiv {
     grid-area: cep;
 }
-#objectivesInputDiv {
+#id-objectivesInputDiv {
     grid-area: objectives;
 }
-#occupationInputDiv {
+#id-occupationInputDiv {
     grid-area: occupation;
     align-items: center;
     flex-direction: row;
 }
-#photoInputDiv {
+#id-photoInputDiv {
     grid-area: photo;
     align-items: center;
 }
 
-#objectivesInputDiv textarea {
+#id-objectivesInputDiv textarea {
     min-height: 80px;
 }
-#occupation {
+#id-occupation {
     width: 150px;
     height: 30px;
     margin-left: 20px;
+}
+
+#id-previewPhoto {
+    border: 1px solid #D0D0D0;
+}
+
+#id-sendPhoto {
+    padding: 10px;
+}
+
+#id-ENVIARFOTO {
+    color: white;
+    background-color: black;
 }
 
 .inputContainer {
@@ -84,8 +97,4 @@
 }
 .inputContainer label {
     margin-left: 10px;
-}
-
-#previewPhoto {
-    border: 1px solid #D0D0D0;
 }
