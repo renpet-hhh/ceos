@@ -1,0 +1,91 @@
+.inputLabel {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202020;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+#formContainer {
+    width: 90%;
+    max-width: 800px;
+    align-self: center;
+    border-radius: 10px;
+    border: 1px solid #202020;
+    background-color: #FAFAFA;
+    padding: 20px;
+}
+
+#gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr auto auto;
+    grid-template-areas: "name name"
+                            "email age"
+                            "cpf cep"
+                            "occupation occupation"
+                            "objectives objectives"
+                            "photo photo";
+}
+
+#nameInputDiv {
+    grid-area: name;
+}
+#emailInputDiv {
+    grid-area: email;
+}
+#ageInputDiv {
+    grid-area: age;
+}
+#cpfInputDiv {
+    grid-area: cpf;
+}
+#cepInputDiv {
+    grid-area: cep;
+}
+#objectivesInputDiv {
+    grid-area: objectives;
+}
+#occupationInputDiv {
+    grid-area: occupation;
+    align-items: center;
+    flex-direction: row;
+}
+#photoInputDiv {
+    grid-area: photo;
+    align-items: center;
+}
+
+#objectivesInputDiv textarea {
+    min-height: 80px;
+}
+#occupation {
+    width: 150px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 4px;
+}
+.inputContainer input, textarea {
+    margin: 5px;
+    height: 30px;
+    margin-left: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ada4a4;
+    border-radius: 3px;
+}
+.inputContainer label {
+    margin-left: 10px;
+}
+
+#previewPhoto {
+    border: 1px solid #D0D0D0;
+}

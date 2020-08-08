@@ -1,8 +1,55 @@
 <!DOCTYPE html>
+
 <head>
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
 </head>
+
 <body>
-    <p>Teste</p>
+    <div id="root">
+        <div id="formContainer">
+            <div id="gridContainer">
+                <div id="nameInputDiv" class="inputContainer">
+                    <label class="inputLabel">Nome</label>
+                    <input id="name" type="text" placeholder="Digite seu nome" />
+                </div>
+                <div id="emailInputDiv" class="inputContainer">
+                    <label class="inputLabel">Email</label>
+                    <input id="email" type="email" placeholder="Digite seu email" />
+                </div>
+                <div id="ageInputDiv" class="inputContainer">
+                    <label class="inputLabel">Idade</label>
+                    <input id="age" type="number" placeholder="Digite sua idade" />
+                </div>
+                <div id="cpfInputDiv" class="inputContainer">
+                    <label class="inputLabel">CPF</label>
+                    <input id="cpf" type="text" placeholder="000.000.000-00" />
+                </div>
+                <div id="cepInputDiv" class="inputContainer">
+                    <label class="inputLabel">CEP</label>
+                    <input id="cep" type="text" placeholder="Digite seu CEP" />
+                </div>
+                <div id="objectivesInputDiv" class="inputContainer">
+                    <label class="inputLabel">Quais são seus objetivos na empresa?</label>
+                    <textarea id="objectives"></textarea>
+                </div>
+                <div id="occupationInputDiv" class="inputContainer">
+                    <label class="inputLabel">Selecione a vaga para a qual você deseja concorrer</label>
+                    <select id="occupation">
+                        <option>Caixa</option>
+                        <option>Segurança</option>
+                        <option>Gerente</option>
+                        <option>Zelador</option>
+                    </select>
+                </div>
+                <div id="photoInputDiv" class="inputContainer">
+                    <label class="inputLabel">Sua foto</label>
+                    <!-- Transparent 1px image as default -->
+                    <!-- https://css-tricks.com/snippets/html/base64-encode-of-1x1px-transparent-gif/ -->
+                    <img id="previewPhoto" alt="Foto enviada pelo usuário" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="200" height="200" />
+                    <input id="sendPhoto" type='file' accept="image/*" />
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
