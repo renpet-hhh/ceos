@@ -61,6 +61,10 @@ const getFormData = () => {
     const form = document.getElementById('id-formContainer');
     const inputs = form.getElementsByTagName('input');
     const data = {};
+    const occupation = document.getElementById('id-occupation');
+    data[occupation.name] = occupation.value;
+    const objectives = document.getElementById('id-objectives');
+    data[objectives.name] = objectives.value;
     for (const input of inputs) {
         data[input.name] = input.value;
     }
