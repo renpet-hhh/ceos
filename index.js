@@ -93,8 +93,9 @@ const runAfterLoad = () => {
         }
         reader.readAsDataURL(file);
     });
-    const button = document.getElementById('id-submitButton');
-    button.addEventListener('click', ev => {
+    const form = document.getElementById('id-formContainer');
+    form.addEventListener('submit', ev => {
+        ev.preventDefault();
         console.log(getFormData());
     });
 }

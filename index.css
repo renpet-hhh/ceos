@@ -1,6 +1,9 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrq8bSTe9Urd-jlPF5RBSqR0CrLciHfyr6BQ&usqp=CAU");
+}
 .inputLabel {
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
     color: #202020;
 }
 
@@ -13,9 +16,10 @@
     max-width: 800px;
     align-self: center;
     border-radius: 10px;
-    border: 1px solid #202020;
     background-color: #FAFAFA;
     padding: 20px;
+    box-shadow: 10px 10px 35px -10px #404040;
+    border: 3px solid #B0B0B0;
 }
 
 #id-gridContainer {
@@ -27,7 +31,8 @@
                             "cpf cep"
                             "occupation occupation"
                             "objectives objectives"
-                            "photo photo";
+                            "photo photo"
+                            "submit submit";
 }
 
 #id-nameInputDiv {
@@ -56,11 +61,18 @@
 #id-photoInputDiv {
     grid-area: photo;
     align-items: center;
+    position: relative;
 }
 
 #id-objectivesInputDiv textarea {
     min-height: 80px;
 }
+#id-submitButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+    grid-area: submit;
+}
+
 #id-occupation {
     width: 150px;
     height: 30px;
@@ -71,13 +83,38 @@
     border: 1px solid #D0D0D0;
 }
 
+/* Esse input type="file" deve ficar invisível pois a estilização está sendo feita no label */
 #id-sendPhoto {
-    padding: 10px;
+    /* Eu poderia usar display: none, mas o browser não iria exibir a mensagem bonita
+    ** "Selecione um arquivo". Não funcionaria em IE8 também, nãa que importe pra esse projeto */
+    pointer-events: none;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    bottom: 10px;
+    width: 1px;
+    height: 1px;
 }
 
-#id-ENVIARFOTO {
-    color: white;
-    background-color: black;
+#id-sendPhotoLabel {
+    padding: 15px;
+    margin: 10px;
+    background-color: #404040;
+    color: #E0E0E0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#id-submitButton {
+    background-color: #a6c2b5;
+    color: #404040;
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 30px;
+    margin-bottom: 15px;
 }
 
 .inputContainer {
